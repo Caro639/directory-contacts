@@ -1,0 +1,13 @@
+package directory_contacts.directory_contacts;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class DirectoryContactsApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(DirectoryContactsApplication.class, args);
+	}
+
+}
