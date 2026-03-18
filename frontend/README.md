@@ -19,9 +19,14 @@ cd frontend
 npm run dev
 ```
 
-L'application sera disponible sur : http://localhost:5173
+L'application sera disponible sur : <http://localhost:5173>
 
 ---
+
+### Base de données
+
+<http://localhost:8080/api/test>
+L'application utilise une base de données H2 en mémoire. Les données seront perdues à chaque redémarrage de l'application. Vous pouvez accéder à la console H2 à l'adresse suivante : <http://localhost:8080/h2-console>
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
