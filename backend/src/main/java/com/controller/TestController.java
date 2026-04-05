@@ -17,7 +17,7 @@ public class TestController {
 
     @GetMapping("/api/test")
     public String testDatabase() {
-        Utilisateur utilisateur = new Utilisateur("testuser", "0600000000", "test@test.com", "Développeur", "DSI", "Bureau 1");
+        Utilisateur utilisateur = new Utilisateur("testuser", "username", "test@test.com", "password");
         
 
         utilisateurRepository.save(utilisateur);

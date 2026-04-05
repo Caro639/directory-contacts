@@ -7,18 +7,25 @@ import jakarta.persistence.OneToMany;
 import java.util.ArrayList;
 import java.util.List;
 import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
 
 @Entity
 public class Utilisateur {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column(nullable = false)
     private String nom;
-    private String telephone;
+
+    @Column(nullable = false)
+    private String prénom;
+
+    @Column(nullable = false, unique = true)
     private String email;
-    private String poste;
-    private String direction;
-    private String bureau;
+
+    @Column(nullable = false)
+    private String motDePasse;
 
     // Relation 1 à plusieurs avec Contact
      @OneToMany(mappedBy = "utilisateur", cascade = CascadeType.ALL, orphanRemoval = true)
@@ -28,13 +35,11 @@ public class Utilisateur {
     public Utilisateur() {
     }
 
-    public Utilisateur(String nom, String telephone, String email, String poste, String direction, String bureau) {
+    public Utilisateur(String nom, String prénom, String email, String motDePasse) {
         this.nom = nom;
-        this.telephone = telephone;
+        this.prénom = prénom;
         this.email = email;
-        this.poste = poste;
-        this.direction = direction;
-        this.bureau = bureau;
+        this.motDePasse = motDePasse;
     }
 
     // Getters et setters
@@ -50,12 +55,12 @@ public class Utilisateur {
         this.nom = nom;
     }
 
-    public String getTelephone() {
-        return telephone;
+    public String getPrénom() {
+        return prénom;
     }
 
-    public void setTelephone(String telephone) {
-        this.telephone = telephone;
+    public void setPrénom(String prénom) {
+        this.prénom = prénom;
     }
 
     public String getEmail() {
@@ -66,29 +71,17 @@ public class Utilisateur {
         this.email = email;
     }
 
-    public String getPoste() {
-        return poste;
+    public String getMotDePasse() {
+        return motDePasse;
     }
 
-    public void setPoste(String poste) {
-        this.poste = poste;
+    public void setMotDePasse(String motDePasse) {
+        this.motDePasse = motDePasse;
     }
 
-    public String getDirection() {
-        return direction;
-    }
-
-    public void setDirection(String direction) {
-        this.direction = direction;
-    }
-
-    public String getBureau() {
-        return bureau;
-    }
-
-    public void setBureau(String bureau) {
-        this.bureau = bureau;
-    }
+//     public void setMotDePasse(String motDePasse) {
+//     this.motDePasse = new BCryptPasswordEncoder().encode(motDePasse);
+// }
 
     public List<Contact> getContacts() {
         return contacts;
